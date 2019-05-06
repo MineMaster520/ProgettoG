@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+
+        function login() {
+            var usr = document.getElementById("name").value;
+            var psw = document.getElementById("psw").value;
+            console.log(usr);
+            console.log(psw);
+
+
+            //alert("CHIAMO");
+
+
+            x = new XMLHttpRequest();
+            var s = "../../back-end/PersonalReminder/login.php";
+
+            x.onreadystatechange = function () {
+                if (x.readyState == 4 && x.status == 200) {
+                    let res = x.responseText;
+                    //alert(res);
+                    if (res == "gotonotes") {
+                        //alert("Cambio");
+                        window.location.href= "notes.php";
+                    }
+
+                } else {
+                    console.log(x.readyState);
+                }
+            }
+            x.open("POST", s, true);
+            x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            x.send("uname=" + usr + "&psw=" + psw);
+
+
+
+
+
+
+
+        }
+
+    </script>
+    <title>Persolal Reminder</title>
+</head>
+
+<body>
+    <h1>Personal Reminder</h1>
+    <h2>Login Form</h2>
+    <!--
+    <form action="../../back-end/PersonalReminder/login.php" method ="POST" >
+    -->
+    <form>
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input id="name" type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+
+            <button onclick="login()">Login</button>
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="button" class="singupbtn" onclick="window.location.href='sing-up.html'">Sing-Up</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+
+    <div id="txtHint">
+
+    </div>
+
+</body>
+
+</html>

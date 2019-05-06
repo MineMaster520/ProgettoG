@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DBPeronalReminder>
+ <users>
+    <id>5</id>
+    <usr>asd</usr>
+    <psw>asd</psw>
+</users>
+
+ <users>
+    <id>6</id>
+    <usr>Salvo</usr>
+    <psw>qwe</psw>
+</users>
+
+ <users>
+    <id>7</id>
+    <usr>aaa</usr>
+    <psw>aaa</psw>
+</users>
+
+</DBPeronalReminder>
